@@ -6,6 +6,8 @@ require('./hbs/helpers');
 
 app.use(express.static(`${__dirname}/public`));
 
+const port = process.env.PORT || 3000;
+
 //Express HBS engine
 hbs.registerPartials(`${__dirname}/views/parciales`);
 app.set('view engine', 'hbs');
@@ -20,6 +22,6 @@ app.get('/about', (req, res) => {
     res.render('about');  
 });
 
-app.listen(3000, () => {
-    console.log('Servidor escuchando en el puerto 3000');
+app.listen(port, () => {
+    console.log('Servidor escuchando en el puerto '+ port);
 });
